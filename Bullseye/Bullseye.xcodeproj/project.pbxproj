@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8446BA232519FD860027DBEB /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446BA222519FD860027DBEB /* AboutView.swift */; };
 		844E7B5B2518AD6D0051F419 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E7B5A2518AD6D0051F419 /* AppDelegate.swift */; };
 		844E7B5D2518AD6D0051F419 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E7B5C2518AD6D0051F419 /* SceneDelegate.swift */; };
 		844E7B5F2518AD6D0051F419 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E7B5E2518AD6D0051F419 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8446BA222519FD860027DBEB /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		844E7B572518AD6D0051F419 /* Bullseye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bullseye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844E7B5A2518AD6D0051F419 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844E7B5C2518AD6D0051F419 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				844E7B5A2518AD6D0051F419 /* AppDelegate.swift */,
 				844E7B5C2518AD6D0051F419 /* SceneDelegate.swift */,
 				844E7B5E2518AD6D0051F419 /* ContentView.swift */,
+				8446BA222519FD860027DBEB /* AboutView.swift */,
 				844E7B602518AD6F0051F419 /* Assets.xcassets */,
 				844E7B652518AD6F0051F419 /* LaunchScreen.storyboard */,
 				844E7B682518AD6F0051F419 /* Info.plist */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8446BA232519FD860027DBEB /* AboutView.swift in Sources */,
 				844E7B5B2518AD6D0051F419 /* AppDelegate.swift in Sources */,
 				844E7B5D2518AD6D0051F419 /* SceneDelegate.swift in Sources */,
 				844E7B5F2518AD6D0051F419 /* ContentView.swift in Sources */,
@@ -293,7 +297,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.Bullseye;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Bullseye;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -312,7 +316,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.Bullseye;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Bullseye;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
