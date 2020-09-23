@@ -53,10 +53,42 @@ class ViewController: UIViewController {
         updateLabels()
     }
     
-    func updateLabels() {
+    private func updateLabels() {
         targetLabel.text = String(targetValue)
         scoreLabel.text = String(score)
         roundLabel.text = String(round)
+    }
+    
+    private func getAlertTitle(difference: Int) -> String {
+        let title: String
+        
+        switch difference {
+        case 0:
+            title = "Perfect!"
+        case let x where x < 5:
+            title = "You almost had it!"
+        case let x where x < 10:
+            title = "Pretty good!"
+        default:
+            title = "Not even close..."
+        }
+        
+        return title
+    }
+    
+    private func getBonusPoints(difference: Int) -> Int {
+        let bonus: Int
+        
+        switch difference {
+        case 0:
+            bonus = 100
+        case 1:
+            bonus = 50
+        default:
+            bonus = 0
+        }
+        
+        return bonus
     }
 
     @IBAction private func sliderMoved(_ slider: UISlider) {
@@ -65,7 +97,7 @@ class ViewController: UIViewController {
     
     @IBAction private func showAlert() {
         let difference = abs(targetValue - currentValue)
-        let points = 100 - difference
+        let points = 100 - difference + getBonusPoints(difference: difference)
         
         score += points
         
@@ -73,13 +105,18 @@ class ViewController: UIViewController {
                       "The target value is: \(targetValue)\n" +
                       "You scored \(points) points"
         
-        let alert = UIAlertController(title: "Perfect!", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Awesome", style: .default, handler: nil)
+        let alertTitle = getAlertTitle(difference: difference)
+        let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default) { [unowned self] (_) in
+            self.startNewRound()
+        }
         
         alert.addAction(action)
-        present(alert, animated: true, completion: nil)
         
-        startNewRound()
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction private func startOver() {
+        startNewGame()
     }
 }
-
