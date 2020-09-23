@@ -8,9 +8,15 @@
 
 import Foundation
 
-struct ChecklistItem: Identifiable {
+struct ChecklistItem {
     let id = UUID()
     
     var name: String
     var isChecked = false
+}
+
+extension ChecklistItem: Identifiable {
+}
+
+extension ChecklistItem: Codable {
 }

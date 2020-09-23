@@ -9,23 +9,37 @@
 /* Begin PBXBuildFile section */
 		8446BA51251A18430027DBEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446BA50251A18430027DBEB /* AppDelegate.swift */; };
 		8446BA53251A18430027DBEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446BA52251A18430027DBEB /* SceneDelegate.swift */; };
-		8446BA55251A18430027DBEB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446BA54251A18430027DBEB /* ContentView.swift */; };
+		8446BA55251A18430027DBEB /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446BA54251A18430027DBEB /* ChecklistView.swift */; };
 		8446BA57251A18440027DBEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8446BA56251A18440027DBEB /* Assets.xcassets */; };
 		8446BA5A251A18440027DBEB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8446BA59251A18440027DBEB /* Preview Assets.xcassets */; };
 		8446BA5D251A18440027DBEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8446BA5B251A18440027DBEB /* LaunchScreen.storyboard */; };
 		8446BA65251A34D20027DBEB /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446BA64251A34D20027DBEB /* ChecklistItem.swift */; };
+		844F7312251B178200D6AC5C /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F7311251B178200D6AC5C /* Checklist.swift */; };
+		844F7317251B241500D6AC5C /* EditChecklistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F7316251B241500D6AC5C /* EditChecklistItemView.swift */; };
+		844F7319251B2AB100D6AC5C /* NewChecklistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F7318251B2AB100D6AC5C /* NewChecklistItemView.swift */; };
+		844F731B251B3CAC00D6AC5C /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F731A251B3CAC00D6AC5C /* RowView.swift */; };
+		844F7322251B45F800D6AC5C /* IndexedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F731F251B45F800D6AC5C /* IndexedCollection.swift */; };
+		844F7323251B45F800D6AC5C /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F7320251B45F800D6AC5C /* Binding.swift */; };
+		844F7324251B45F800D6AC5C /* ForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F7321251B45F800D6AC5C /* ForEach.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8446BA4D251A18430027DBEB /* Checklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8446BA50251A18430027DBEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8446BA52251A18430027DBEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8446BA54251A18430027DBEB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8446BA54251A18430027DBEB /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		8446BA56251A18440027DBEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8446BA59251A18440027DBEB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8446BA5C251A18440027DBEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8446BA5E251A18440027DBEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8446BA64251A34D20027DBEB /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		844F7311251B178200D6AC5C /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		844F7316251B241500D6AC5C /* EditChecklistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChecklistItemView.swift; sourceTree = "<group>"; };
+		844F7318251B2AB100D6AC5C /* NewChecklistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChecklistItemView.swift; sourceTree = "<group>"; };
+		844F731A251B3CAC00D6AC5C /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		844F731F251B45F800D6AC5C /* IndexedCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexedCollection.swift; sourceTree = "<group>"; };
+		844F7320251B45F800D6AC5C /* Binding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
+		844F7321251B45F800D6AC5C /* ForEach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForEach.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +72,11 @@
 		8446BA4F251A18430027DBEB /* Checklist */ = {
 			isa = PBXGroup;
 			children = (
+				844F731E251B45F800D6AC5C /* Extensions */,
+				844F7313251B178E00D6AC5C /* Model */,
+				844F7315251B182400D6AC5C /* View */,
 				8446BA50251A18430027DBEB /* AppDelegate.swift */,
 				8446BA52251A18430027DBEB /* SceneDelegate.swift */,
-				8446BA54251A18430027DBEB /* ContentView.swift */,
-				8446BA64251A34D20027DBEB /* ChecklistItem.swift */,
 				8446BA56251A18440027DBEB /* Assets.xcassets */,
 				8446BA5B251A18440027DBEB /* LaunchScreen.storyboard */,
 				8446BA5E251A18440027DBEB /* Info.plist */,
@@ -76,6 +91,36 @@
 				8446BA59251A18440027DBEB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		844F7313251B178E00D6AC5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				844F7311251B178200D6AC5C /* Checklist.swift */,
+				8446BA64251A34D20027DBEB /* ChecklistItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		844F7315251B182400D6AC5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8446BA54251A18430027DBEB /* ChecklistView.swift */,
+				844F731A251B3CAC00D6AC5C /* RowView.swift */,
+				844F7318251B2AB100D6AC5C /* NewChecklistItemView.swift */,
+				844F7316251B241500D6AC5C /* EditChecklistItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		844F731E251B45F800D6AC5C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				844F731F251B45F800D6AC5C /* IndexedCollection.swift */,
+				844F7320251B45F800D6AC5C /* Binding.swift */,
+				844F7321251B45F800D6AC5C /* ForEach.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,10 +194,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844F7312251B178200D6AC5C /* Checklist.swift in Sources */,
 				8446BA51251A18430027DBEB /* AppDelegate.swift in Sources */,
+				844F7324251B45F800D6AC5C /* ForEach.swift in Sources */,
+				844F7322251B45F800D6AC5C /* IndexedCollection.swift in Sources */,
 				8446BA53251A18430027DBEB /* SceneDelegate.swift in Sources */,
-				8446BA55251A18430027DBEB /* ContentView.swift in Sources */,
+				844F731B251B3CAC00D6AC5C /* RowView.swift in Sources */,
+				8446BA55251A18430027DBEB /* ChecklistView.swift in Sources */,
+				844F7317251B241500D6AC5C /* EditChecklistItemView.swift in Sources */,
+				844F7319251B2AB100D6AC5C /* NewChecklistItemView.swift in Sources */,
 				8446BA65251A34D20027DBEB /* ChecklistItem.swift in Sources */,
+				844F7323251B45F800D6AC5C /* Binding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
