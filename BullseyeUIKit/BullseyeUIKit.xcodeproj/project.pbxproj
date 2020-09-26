@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8446C84E251F520A00A3EC2B /* HighScoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C84D251F520A00A3EC2B /* HighScoreItem.swift */; };
+		8446C850251F5ACF00A3EC2B /* PersistencyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C84F251F5ACF00A3EC2B /* PersistencyHelper.swift */; };
+		8446C852251F600700A3EC2B /* EditHighScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C851251F600700A3EC2B /* EditHighScoreTableViewController.swift */; };
 		8447E2D7251CD9C0008B37AD /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447E2D6251CD9BF008B37AD /* AboutViewController.swift */; };
 		8447E2DB251CDF2D008B37AD /* Bullseye.html in Resources */ = {isa = PBXBuildFile; fileRef = 8447E2DA251CDF2D008B37AD /* Bullseye.html */; };
 		8447E2DE251CDFBB008B37AD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8447E2DD251CDFBB008B37AD /* WebKit.framework */; };
+		8447E2E0251CED98008B37AD /* HighScoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8447E2DF251CED98008B37AD /* HighScoresTableViewController.swift */; };
 		844F7332251B780600D6AC5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F7331251B780600D6AC5C /* AppDelegate.swift */; };
 		844F7334251B780600D6AC5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F7333251B780600D6AC5C /* SceneDelegate.swift */; };
 		844F7336251B780600D6AC5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F7335251B780600D6AC5C /* ViewController.swift */; };
@@ -19,10 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8446C84D251F520A00A3EC2B /* HighScoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreItem.swift; sourceTree = "<group>"; };
+		8446C84F251F5ACF00A3EC2B /* PersistencyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencyHelper.swift; sourceTree = "<group>"; };
+		8446C851251F600700A3EC2B /* EditHighScoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHighScoreTableViewController.swift; sourceTree = "<group>"; };
 		8447E2D6251CD9BF008B37AD /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		8447E2D8251CDEF7008B37AD /* iOS_Apprentice_souce_code_v8.2.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = iOS_Apprentice_souce_code_v8.2.1; sourceTree = "<group>"; };
 		8447E2DA251CDF2D008B37AD /* Bullseye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Bullseye.html; sourceTree = "<group>"; };
 		8447E2DD251CDFBB008B37AD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		8447E2DF251CED98008B37AD /* HighScoresTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresTableViewController.swift; sourceTree = "<group>"; };
 		844F732E251B780600D6AC5C /* BullseyeUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullseyeUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844F7331251B780600D6AC5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844F7333251B780600D6AC5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,11 +80,14 @@
 		844F7330251B780600D6AC5C /* BullseyeUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				8447E2D8251CDEF7008B37AD /* iOS_Apprentice_souce_code_v8.2.1 */,
 				844F7331251B780600D6AC5C /* AppDelegate.swift */,
 				844F7333251B780600D6AC5C /* SceneDelegate.swift */,
 				844F7335251B780600D6AC5C /* ViewController.swift */,
 				8447E2D6251CD9BF008B37AD /* AboutViewController.swift */,
+				8447E2DF251CED98008B37AD /* HighScoresTableViewController.swift */,
+				8446C84D251F520A00A3EC2B /* HighScoreItem.swift */,
+				8446C851251F600700A3EC2B /* EditHighScoreTableViewController.swift */,
+				8446C84F251F5ACF00A3EC2B /* PersistencyHelper.swift */,
 				844F7337251B780600D6AC5C /* Main.storyboard */,
 				8447E2DA251CDF2D008B37AD /* Bullseye.html */,
 				844F733A251B780900D6AC5C /* Assets.xcassets */,
@@ -159,6 +169,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8447E2E0251CED98008B37AD /* HighScoresTableViewController.swift in Sources */,
+				8446C84E251F520A00A3EC2B /* HighScoreItem.swift in Sources */,
+				8446C852251F600700A3EC2B /* EditHighScoreTableViewController.swift in Sources */,
+				8446C850251F5ACF00A3EC2B /* PersistencyHelper.swift in Sources */,
 				844F7336251B780600D6AC5C /* ViewController.swift in Sources */,
 				844F7332251B780600D6AC5C /* AppDelegate.swift in Sources */,
 				8447E2D7251CD9C0008B37AD /* AboutViewController.swift in Sources */,
