@@ -8,10 +8,8 @@
 
 import Foundation
 
-struct HighScoreItem {
+// NSObject is an alternative to Equatable, without the need to specify a way to compare two objects
+class HighScoreItem: NSObject, Codable {
     var name = ""
     var score = 0
-}
-
-extension HighScoreItem: Codable {
 }

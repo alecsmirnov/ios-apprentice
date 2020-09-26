@@ -23,6 +23,20 @@ class HighScoresTableViewController: UITableViewController {
     
     @IBAction func resetHighScores() {        
         PersistencyHelper.saveHighScores(items)
+        tableView.reloadData()
+    }
+    
+    // MARK: - Navigation
+    
+    // UIKit invokes prepare(for:sender:) right before it performs a segue from one screen to another.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! EditHighScoreTableViewController
+        controller.delegate = self
+        
+        // sender contains a reference to the control that triggered the segue
+        if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+            controller.highScoreItem = items[indexPath.row]
+        }
     }
 
     // MARK: - Table View Data Source
@@ -58,5 +72,26 @@ class HighScoresTableViewController: UITableViewController {
         tableView.deleteRows(at: indexPaths, with: .automatic)
         
         PersistencyHelper.saveHighScores(items)
+    }
+}
+
+// MARK: - Edit High Score Table ViewController Delegates
+
+extension HighScoresTableViewController: EditHighScoreTableViewControllerDelegate {
+    func editHighScoreTableViewControllerDidCancel(_ controller: EditHighScoreTableViewController) {
+        navigationController?.popViewController(animated:true)
+    }
+    
+    func editHighScoreTableViewController(_ controller: EditHighScoreTableViewController, didFinishEditing item: HighScoreItem) {
+        if let index = items.firstIndex(of: item) {
+            let indexPath = IndexPath(row: index, section: 0)
+            let indexPaths = [indexPath]
+            
+            tableView.reloadRows(at: indexPaths, with: .automatic)
+        }
+        
+        PersistencyHelper.saveHighScores(items)
+        
+        navigationController?.popViewController(animated: true)
     }
 }

@@ -8,12 +8,22 @@
 
 import UIKit
 
+protocol EditHighScoreTableViewControllerDelegate: class {
+    func editHighScoreTableViewControllerDidCancel(_ controller: EditHighScoreTableViewController)
+    func editHighScoreTableViewController(_ controller: EditHighScoreTableViewController, didFinishEditing item: HighScoreItem)
+}
+
 class EditHighScoreTableViewController: UITableViewController {
+    weak var delegate: EditHighScoreTableViewControllerDelegate?
+    var highScoreItem: HighScoreItem!
+    
     @IBOutlet private weak var doneBarButton: UIBarButtonItem!
     @IBOutlet private weak var textField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textField.text = highScoreItem.name
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,16 +33,16 @@ class EditHighScoreTableViewController: UITableViewController {
     }
     
     @IBAction private func cancel() {
-        if let navigationController = navigationController {
-            navigationController.popViewController(animated: true)
+        if let delegate = delegate {
+            delegate.editHighScoreTableViewControllerDidCancel(self)
         }
     }
     
     @IBAction private func done() {
-        if let navigationController = navigationController {
-            print("Contents of the text field: \(textField.text!)")
-            
-            navigationController.popViewController(animated: true)
+        highScoreItem.name = textField.text!
+        
+        if let delegate = delegate {
+            delegate.editHighScoreTableViewController(self, didFinishEditing: highScoreItem)
         }
     }
     
