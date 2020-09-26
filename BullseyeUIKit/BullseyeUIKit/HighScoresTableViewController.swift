@@ -25,7 +25,7 @@ class HighScoresTableViewController: UITableViewController {
         PersistencyHelper.saveHighScores(items)
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -45,7 +45,7 @@ class HighScoresTableViewController: UITableViewController {
         return cell
     }
     
-    // MARK:- Table View Delegate
+    // MARK: - Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
