@@ -115,7 +115,7 @@ class ViewController: UIViewController {
     private func addHighScore(_ score:Int) {
         guard score > 0 else { return }
         
-        var highscore = HighScoreItem()
+        let highscore = HighScoreItem()
         highscore.score = score
         highscore.name = "Unknown"
         
