@@ -182,12 +182,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="YbO-tN-aUa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dpj-f9-t8y"/>
+                            <constraint firstItem="YbO-tN-aUa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Dpj-f9-t8y"/>
                             <constraint firstItem="VZl-H8-Q0F" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RcJ-Im-SGj"/>
                             <constraint firstItem="VZl-H8-Q0F" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VLj-zY-TF4"/>
                             <constraint firstItem="YbO-tN-aUa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nwt-k5-o3Z"/>
-                            <constraint firstItem="YbO-tN-aUa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pLO-Wg-MIX"/>
-                            <constraint firstItem="YbO-tN-aUa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qJJ-WP-euu"/>
+                            <constraint firstItem="YbO-tN-aUa" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="pLO-Wg-MIX"/>
+                            <constraint firstItem="YbO-tN-aUa" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="qJJ-WP-euu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
