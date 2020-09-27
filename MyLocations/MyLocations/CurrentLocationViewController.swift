@@ -49,6 +49,7 @@ class CurrentLocationViewController: UIViewController {
         let authStatus = CLLocationManager.authorizationStatus()
         
         if authStatus == .notDetermined {
+            // Receive information about updating the location when the application is active
             locationManager.requestWhenInUseAuthorization()
             return
         }
@@ -59,8 +60,10 @@ class CurrentLocationViewController: UIViewController {
         }
         
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         
+        // Location Accuracy
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        // Current location request
         locationManager.startUpdatingLocation()
     }
     
@@ -86,7 +89,9 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
         print("didFailWithError \(error.localizedDescription)")
     }
     
+    // Run location manager to respond to changes geolocation
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // The last location is the most accurate position
         let newLocation = locations.last!
         
         print("didUpdateLocations \(newLocation)")
