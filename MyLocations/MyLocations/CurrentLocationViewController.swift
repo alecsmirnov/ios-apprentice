@@ -38,6 +38,18 @@ class CurrentLocationViewController: UIViewController {
         updateLabels()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     func updateLabels() {
         if let location = location {
             messageLabel.text = ""
@@ -152,7 +164,18 @@ class CurrentLocationViewController: UIViewController {
         return line1 + "\n" + line2
     }
     
-    // MARK: Actions
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TagLocation" {
+            let controller = segue.destination as! LocationDetailsTableViewController
+            
+            controller.coordinate = location!.coordinate
+            controller.placemark = placemark
+        }
+    }
+    
+    // MARK: - Actions
     
     @IBAction func getLocation() {
         let authStatus = CLLocationManager.authorizationStatus()
@@ -182,7 +205,7 @@ class CurrentLocationViewController: UIViewController {
         updateLabels()
     }
     
-    // MARK: Helper Methods
+    // MARK: - Helper Methods
     
     func showLocationServicesDeniedAlert() {
         let alert = UIAlertController(title: "Location Services Disabled",
