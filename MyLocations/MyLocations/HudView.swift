@@ -19,6 +19,7 @@ class HudView: UIView {
         view.addSubview(hudView)
         view.isUserInteractionEnabled = false
         
+        // Set hud animation
         hudView.show(animated: animated)
         
         return hudView
@@ -60,6 +61,7 @@ class HudView: UIView {
     
     // MARK: - Public methods
     
+    // Hud appearance animation
     func show(animated: Bool) {
         if animated {
             alpha = 0
