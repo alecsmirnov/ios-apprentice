@@ -8,8 +8,8 @@
 //
 
 import Foundation
-import CoreData
 import CoreLocation
+import CoreData
 
 extension Location {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Location> {

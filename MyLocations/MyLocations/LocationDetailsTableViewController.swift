@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -19,10 +20,14 @@ private let dateFormatter: DateFormatter = {
 }()
 
 class LocationDetailsTableViewController: UITableViewController {
+    var managedObjectContext: NSManagedObjectContext!
+    
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     
     var categoryName = "No Category"
+    
+    var date = Date()
     
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -46,7 +51,7 @@ class LocationDetailsTableViewController: UITableViewController {
             addressLabel.text = "No Address Found"
         }
         
-        dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
         
         // Hide keyboard
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -118,12 +123,26 @@ class LocationDetailsTableViewController: UITableViewController {
         
         hudView.text = "Tagged"
         
-        let delayInSeconds = 0.6
+        let location = Location(context: managedObjectContext)
 
-        afterDelay(delayInSeconds) {
-            hudView.hide()
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        
+        do {
+            try managedObjectContext.save()
             
-            self.navigationController?.popViewController(animated: true)
+            let delayInSeconds = 0.6
+            afterDelay(delayInSeconds) {
+                hudView.hide()
+                
+                self.navigationController?.popViewController(animated: true)
+            }
+        } catch {
+            fatalCoreDataError(error)
         }
     }
     
