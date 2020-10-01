@@ -111,17 +111,6 @@ class LocationDetailsTableViewController: UITableViewController {
         return dateFormatter.string(from: date)
     }
     
-    @objc func hideKeyboard(_ gestureRecognizer: UIGestureRecognizer) {
-        let point = gestureRecognizer.location(in: tableView)
-        let indexPath = tableView.indexPathForRow(at: point)
-        
-        if indexPath != nil && indexPath!.section == 0 && indexPath!.row == 0 {
-            return
-        }
-        
-        descriptionTextView.resignFirstResponder()
-    }
-    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -181,6 +170,17 @@ class LocationDetailsTableViewController: UITableViewController {
         // Read the values from source
         categoryName = controller.selectedCategoryName
         categoryLabel.text = categoryName
+    }
+    
+    @objc func hideKeyboard(_ gestureRecognizer: UIGestureRecognizer) {
+        let point = gestureRecognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        if indexPath != nil && indexPath!.section == 0 && indexPath!.row == 0 {
+            return
+        }
+        
+        descriptionTextView.resignFirstResponder()
     }
     
     // MARK: - Table View Delegates

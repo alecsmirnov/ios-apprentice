@@ -210,6 +210,16 @@ class CurrentLocationViewController: UIViewController {
         updateLabels()
     }
     
+    @objc func didTimeOut() {
+        if location == nil {
+            stopLocationManager()
+            
+            lastLocationError = NSError(domain: "MyLocationsErrorDomain", code: 1, userInfo: nil)
+            
+            updateLabels()
+        }
+    }
+    
     // MARK: - Helper Methods
     
     func showLocationServicesDeniedAlert() {
@@ -222,16 +232,6 @@ class CurrentLocationViewController: UIViewController {
         alert.addAction(okAction)
         
         present(alert, animated: true, completion: nil)
-    }
-    
-    @objc func didTimeOut() {
-        if location == nil {
-            stopLocationManager()
-            
-            lastLocationError = NSError(domain: "MyLocationsErrorDomain", code: 1, userInfo: nil)
-            
-            updateLabels()
-        }
     }
 }
 

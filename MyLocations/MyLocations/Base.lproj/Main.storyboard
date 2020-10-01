@@ -211,6 +211,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="lNl-9Z-Oc4" id="ZUL-ED-LL9"/>
+                        <segue destination="DZT-bh-UB6" kind="show" identifier="EditLocation" id="rHT-6U-uG5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vl-ek-PBG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -272,7 +273,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="(Description goes here)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="auQ-3V-6n8">
-                                                    <rect key="frame" x="16" y="6" width="342" height="76"/>
+                                                    <rect key="frame" x="16" y="6" width="382" height="76"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -404,8 +405,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-NZ-Wl5">
-                                                    <rect key="frame" x="310" y="11.999999999999998" width="44" height="20.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-NZ-Wl5">
+                                                    <rect key="frame" x="350" y="11.999999999999998" width="44" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -475,7 +476,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eaa-B8-Qf2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-801" y="2173"/>
+            <point key="canvasLocation" x="0.0" y="2267.934782608696"/>
         </scene>
         <!--Category Picker Table View Controller-->
         <scene sceneID="Ps6-gd-yqI">
@@ -517,7 +518,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mez-qA-2Lc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="yFU-TJ-Rhh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-801" y="2884"/>
+            <point key="canvasLocation" x="0.0" y="2963"/>
         </scene>
         <!--Tag-->
         <scene sceneID="uNS-Zo-vwk">
@@ -559,7 +560,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mC9-pa-gsT"/>
+        <segue reference="rHT-6U-uG5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="first" width="30" height="30"/>
