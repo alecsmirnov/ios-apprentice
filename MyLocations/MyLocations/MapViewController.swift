@@ -17,16 +17,29 @@ class MapViewController: UIViewController {
                                                    object: managedObjectContext,
                                                    queue: OperationQueue.main) { notification in
                 if self.isViewLoaded {
-                    self.updateLocations()
-                    
-                    /*
                     // userInfo dictionary
                     if let dictionary = notification.userInfo {
+                        /*
                         print(dictionary[NSInsertedObjectsKey])
                         print(dictionary[NSUpdatedObjectsKey])
                         print(dictionary[NSDeletedObjectsKey])
+                        */
+                        
+                        if let insertSet = dictionary[NSInsertedObjectsKey] as? Set<Location> {
+                            self.insert(location: insertSet.first! as Location)
+                        }
+
+                        if let updateSet = dictionary[NSUpdatedObjectsKey] as? Set<Location> {
+                            self.update(location: updateSet.first! as Location)
+                        }
+
+                        if let deleteSet = dictionary[NSDeletedObjectsKey] as? Set<Location> {
+                            self.delete(location: deleteSet.first! as Location)
+                        }
                     }
-                    */
+                } else {
+                    // Not used, but just in case
+                    self.updateLocations()
                 }
             }
         }
@@ -55,6 +68,19 @@ class MapViewController: UIViewController {
         locations = try! managedObjectContext.fetch(fetchRequest)
         
         mapView.addAnnotations(locations)
+    }
+    
+    func insert(location: Location) {
+        mapView.addAnnotation(location)
+    }
+    
+    func update(location: Location) {
+        mapView.removeAnnotation(location)
+        mapView.addAnnotation(location)
+    }
+    
+    func delete(location: Location) {
+        mapView.removeAnnotation(location)
     }
     
     func region(for annotations: [MKAnnotation]) -> MKCoordinateRegion {
