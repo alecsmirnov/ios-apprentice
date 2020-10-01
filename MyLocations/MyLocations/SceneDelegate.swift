@@ -20,12 +20,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabController = window!.rootViewController as! UITabBarController
         
         if let tabViewControllers = tabController.viewControllers {
-            let navController = tabViewControllers[0] as! UINavigationController
-            let controller = navController.viewControllers.first as! CurrentLocationViewController
-        
+            // First tab
+            var navController = tabViewControllers[0] as! UINavigationController
+            let currentLocationController = navController.viewControllers.first as! CurrentLocationViewController
+            
+            // Second tab
+            navController = tabViewControllers[1] as! UINavigationController
+            let locationsController = navController.viewControllers.first as! LocationsTableViewController
+            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             
-            controller.managedObjectContext = appDelegate.managedObjectContext
+            currentLocationController.managedObjectContext = appDelegate.managedObjectContext
+            locationsController.managedObjectContext = appDelegate.managedObjectContext
+            
+            // Force the LocationsTableViewController to load its view immediately. Without this, it delays loading the view until switch tab
+            // To avoid CoreData bug when access to the second tab for the first time, after adding new data, cause error
+            let _ = locationsController.view
         }
         
         listenForFatalCoreDataNotifications()
@@ -71,6 +81,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let alert = UIAlertController(title: "Internal Error", message: message, preferredStyle: .alert)
                                                 
             let action = UIAlertAction(title: "OK", style: .default) { _ in
+                // NSException object to terminate the app
                 let exception = NSException(name: NSExceptionName.internalInconsistencyException,
                                             reason: "Fatal Core Data error", userInfo: nil)
                 exception.raise()
