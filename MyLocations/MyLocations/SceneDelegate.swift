@@ -28,10 +28,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             navController = tabViewControllers[1] as! UINavigationController
             let locationsController = navController.viewControllers.first as! LocationsTableViewController
             
+            // Third tab
+            navController = tabViewControllers[2] as! UINavigationController
+            let mapController = navController.viewControllers.first as! MapViewController
+            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             
             currentLocationController.managedObjectContext = appDelegate.managedObjectContext
             locationsController.managedObjectContext = appDelegate.managedObjectContext
+            mapController.managedObjectContext = appDelegate.managedObjectContext
             
             // Force the LocationsTableViewController to load its view immediately. Without this, it delays loading the view until switch tab
             // To avoid CoreData bug when access to the second tab for the first time, after adding new data, cause error

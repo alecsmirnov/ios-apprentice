@@ -75,7 +75,8 @@ class LocationDetailsTableViewController: UITableViewController {
         tableView.addGestureRecognizer(gestureRecognizer)
     }
     
-    // MARK:- Helper Methods
+    // MARK: - Helper Methods
+    
     func string(from placemark: CLPlacemark) -> String {
         var text = ""
         

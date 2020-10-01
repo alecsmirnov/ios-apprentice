@@ -15,11 +15,7 @@ class LocationsTableViewController: UITableViewController {
     
     // As a const
     private(set) lazy var fetchedResultsController: NSFetchedResultsController<Location> = {
-        // let fetchRequest = Location.fetchRequest()
-        let fetchRequest = NSFetchRequest<Location>()
-        
-        let entity = Location.entity()
-        fetchRequest.entity = entity
+        let fetchRequest: NSFetchRequest = Location.fetchRequest()
         
         let sort1 = NSSortDescriptor(key: "category", ascending: true)
         let sort2 = NSSortDescriptor(key: "date", ascending: true)
