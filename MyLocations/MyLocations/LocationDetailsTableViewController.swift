@@ -27,6 +27,21 @@ class LocationDetailsTableViewController: UITableViewController {
     var date = Date()
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
+    
+    var image: UIImage? {
+        didSet {
+            if let image = image {
+                imageView.image = image
+                imageView.isHidden = false
+                
+                addPhotoLabel.text = ""
+                
+                // Change imageView height constraint
+                imageHeight.constant = 260
+                tableView.reloadData()
+            }
+        }
+    }
 
     var locationToEdit: Location? {
         didSet {
@@ -42,10 +57,16 @@ class LocationDetailsTableViewController: UITableViewController {
     
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addPhotoLabel: UILabel!
+    
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -257,6 +278,8 @@ extension LocationDetailsTableViewController: UIImagePickerControllerDelegate, U
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        
         dismiss(animated: true, completion: nil)
     }
     

@@ -332,11 +332,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="piQ-al-khD">
+                                                    <rect key="frame" x="101" y="11" width="274" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="l5n-T3-2j4"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="piQ-al-khD" firstAttribute="top" secondItem="hth-u0-uNZ" secondAttribute="topMargin" id="2r8-qS-xGw"/>
                                                 <constraint firstItem="GSE-Oh-8y1" firstAttribute="leading" secondItem="hth-u0-uNZ" secondAttribute="leadingMargin" id="4i0-Th-tXW"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GSE-Oh-8y1" secondAttribute="trailing" constant="20" symbolic="YES" id="Es3-u9-85j"/>
                                                 <constraint firstItem="GSE-Oh-8y1" firstAttribute="centerY" secondItem="hth-u0-uNZ" secondAttribute="centerY" id="Nqz-uF-fJn"/>
+                                                <constraint firstItem="piQ-al-khD" firstAttribute="leading" secondItem="GSE-Oh-8y1" secondAttribute="trailing" id="VCX-BL-nE2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="piQ-al-khD" secondAttribute="trailing" id="iNm-vb-5Eg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="piQ-al-khD" secondAttribute="bottom" id="ok9-fn-OL4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -466,10 +476,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPhotoLabel" destination="GSE-Oh-8y1" id="WSx-o8-N84"/>
                         <outlet property="addressLabel" destination="mS5-NZ-Wl5" id="TbJ-wa-9fI"/>
                         <outlet property="categoryLabel" destination="0zt-6F-dJf" id="u8j-ri-Za8"/>
                         <outlet property="dateLabel" destination="oor-q9-wMn" id="grY-ox-lkK"/>
                         <outlet property="descriptionTextView" destination="auQ-3V-6n8" id="bD8-4j-mFw"/>
+                        <outlet property="imageHeight" destination="l5n-T3-2j4" id="W8D-x3-m0u"/>
+                        <outlet property="imageView" destination="piQ-al-khD" id="8Ue-aB-wld"/>
                         <outlet property="latitudeLabel" destination="DYA-S1-U2Z" id="LmX-xi-sm3"/>
                         <outlet property="longitudeLabel" destination="yxq-pp-WC2" id="l6e-vX-fuk"/>
                     </connections>
