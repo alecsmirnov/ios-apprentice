@@ -11,7 +11,26 @@ import MapKit
 import CoreData
 
 class MapViewController: UIViewController {
-    var managedObjectContext: NSManagedObjectContext!
+    var managedObjectContext: NSManagedObjectContext! {
+        didSet {
+            NotificationCenter.default.addObserver(forName: Notification.Name.NSManagedObjectContextObjectsDidChange,
+                                                   object: managedObjectContext,
+                                                   queue: OperationQueue.main) { notification in
+                if self.isViewLoaded {
+                    self.updateLocations()
+                    
+                    /*
+                    // userInfo dictionary
+                    if let dictionary = notification.userInfo {
+                        print(dictionary[NSInsertedObjectsKey])
+                        print(dictionary[NSUpdatedObjectsKey])
+                        print(dictionary[NSDeletedObjectsKey])
+                    }
+                    */
+                }
+            }
+        }
+    }
     
     var locations = [Location]()
     
