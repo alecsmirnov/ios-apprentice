@@ -18,6 +18,7 @@
 		84461D3B2524C0D300578238 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84461D392524C0D300578238 /* DataModel.xcdatamodeld */; };
 		84461D422524C44000578238 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461D402524C44000578238 /* Location+CoreDataClass.swift */; };
 		84461D432524C44000578238 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461D412524C44000578238 /* Location+CoreDataProperties.swift */; };
+		844689B325288B8B00E4F509 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844689B225288B8B00E4F509 /* UIImage+Resize.swift */; };
 		8446A9812525B55100CE1995 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446A9802525B55100CE1995 /* LocationsTableViewController.swift */; };
 		8446A9832525C60700CE1995 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446A9822525C60700CE1995 /* LocationCell.swift */; };
 		8446A9862525E97C00CE1995 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446A9852525E97C00CE1995 /* MapViewController.swift */; };
@@ -40,6 +41,7 @@
 		84461D3A2524C0D300578238 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		84461D402524C44000578238 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		84461D412524C44000578238 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		844689B225288B8B00E4F509 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		8446A9802525B55100CE1995 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		8446A9822525C60700CE1995 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		8446A9852525E97C00CE1995 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				8446A9872525F6EB00CE1995 /* Location+MKAnnotation.swift */,
+				844689B225288B8B00E4F509 /* UIImage+Resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				8446168A2520AF54005E8934 /* SceneDelegate.swift in Sources */,
 				8446A9862525E97C00CE1995 /* MapViewController.swift in Sources */,
 				8446A9832525C60700CE1995 /* LocationCell.swift in Sources */,
+				844689B325288B8B00E4F509 /* UIImage+Resize.swift in Sources */,
 				84461D3B2524C0D300578238 /* DataModel.xcdatamodeld in Sources */,
 				8446A9812525B55100CE1995 /* LocationsTableViewController.swift in Sources */,
 				84461D362524729700578238 /* HudView.swift in Sources */,

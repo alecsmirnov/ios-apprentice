@@ -133,31 +133,41 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gi0-xy-QOm">
-                                            <rect key="frame" x="20" y="9" width="374" height="21"/>
+                                            <rect key="frame" x="76" y="9" width="318" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FA4-og-ERq">
-                                            <rect key="frame" x="20" y="33" width="374" height="17"/>
+                                            <rect key="frame" x="76" y="33" width="318" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7UP-fJ-zmb">
+                                            <rect key="frame" x="16" y="2" width="52" height="52"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="52" id="LWE-X7-scG"/>
+                                                <constraint firstAttribute="width" constant="52" id="ymE-vr-k8g"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="FA4-og-ERq" secondAttribute="trailing" constant="20" id="Ax7-4d-R6U"/>
-                                        <constraint firstItem="FA4-og-ERq" firstAttribute="top" secondItem="Gi0-xy-QOm" secondAttribute="bottom" constant="3" id="CNQ-yY-Fmf"/>
-                                        <constraint firstAttribute="trailing" secondItem="Gi0-xy-QOm" secondAttribute="trailing" constant="20" id="G3o-OO-qhj"/>
-                                        <constraint firstItem="FA4-og-ERq" firstAttribute="leading" secondItem="pQB-dn-oxw" secondAttribute="leading" constant="20" id="Uuo-Oi-4jT"/>
-                                        <constraint firstItem="Gi0-xy-QOm" firstAttribute="top" secondItem="pQB-dn-oxw" secondAttribute="top" constant="9" id="ZMF-p5-YSH"/>
-                                        <constraint firstAttribute="bottom" secondItem="FA4-og-ERq" secondAttribute="bottom" constant="8" id="abw-Eb-eK9"/>
-                                        <constraint firstItem="Gi0-xy-QOm" firstAttribute="leading" secondItem="pQB-dn-oxw" secondAttribute="leading" constant="20" id="hkB-0C-p6L"/>
+                                        <constraint firstItem="FA4-og-ERq" firstAttribute="top" secondItem="Gi0-xy-QOm" secondAttribute="bottom" constant="3" id="I1D-Kx-Abh"/>
+                                        <constraint firstItem="Gi0-xy-QOm" firstAttribute="leading" secondItem="7UP-fJ-zmb" secondAttribute="trailing" constant="8" id="Jvp-fe-gwd"/>
+                                        <constraint firstItem="7UP-fJ-zmb" firstAttribute="top" secondItem="pQB-dn-oxw" secondAttribute="top" constant="2" id="SKa-XD-VkV"/>
+                                        <constraint firstAttribute="bottom" secondItem="FA4-og-ERq" secondAttribute="bottom" constant="8" id="f0b-tK-ZBT"/>
+                                        <constraint firstAttribute="trailing" secondItem="Gi0-xy-QOm" secondAttribute="trailing" constant="20" id="gDg-Lb-UlF"/>
+                                        <constraint firstItem="Gi0-xy-QOm" firstAttribute="top" secondItem="pQB-dn-oxw" secondAttribute="top" constant="9" id="jMq-Iu-cBJ"/>
+                                        <constraint firstItem="FA4-og-ERq" firstAttribute="leading" secondItem="7UP-fJ-zmb" secondAttribute="trailing" constant="8" id="vDY-oZ-heD"/>
+                                        <constraint firstAttribute="trailing" secondItem="FA4-og-ERq" secondAttribute="trailing" constant="20" id="y7s-Zr-Obu"/>
+                                        <constraint firstItem="7UP-fJ-zmb" firstAttribute="leading" secondItem="pQB-dn-oxw" secondAttribute="leading" constant="16" id="zVF-GM-QsZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="addressLabel" destination="FA4-og-ERq" id="5Xj-0B-RBW"/>
                                     <outlet property="descriptionLabel" destination="Gi0-xy-QOm" id="rHu-Pn-oCP"/>
+                                    <outlet property="photoImageView" destination="7UP-fJ-zmb" id="6jx-Dl-aTd"/>
                                     <segue destination="DZT-bh-UB6" kind="show" identifier="EditLocation" id="q0U-Yr-ZxH"/>
                                 </connections>
                             </tableViewCell>
@@ -171,7 +181,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTd-cx-PzZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="1415"/>
+            <point key="canvasLocation" x="0.0" y="1414.4021739130435"/>
         </scene>
         <!--Map-->
         <scene sceneID="nL7-Vm-OSM">
@@ -211,7 +221,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="lNl-9Z-Oc4" id="ZUL-ED-LL9"/>
-                        <segue destination="DZT-bh-UB6" kind="show" identifier="EditLocation" id="rHT-6U-uG5"/>
+                        <segue destination="DZT-bh-UB6" kind="show" identifier="EditLocation" id="5HP-1D-gSO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vl-ek-PBG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -573,7 +583,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rHT-6U-uG5"/>
+        <segue reference="q0U-Yr-ZxH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="first" width="30" height="30"/>
