@@ -24,4 +24,5 @@ extension Location {
     //@NSManaged public var placemark: NSObject?
     // CLPPlacemark supports NSCoding protocol
     @NSManaged public var placemark: CLPlacemark?
+    @NSManaged public var photoID: NSNumber?
 }

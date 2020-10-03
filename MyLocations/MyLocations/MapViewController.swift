@@ -37,9 +37,6 @@ class MapViewController: UIViewController {
                             self.delete(location: deleteSet.first! as Location)
                         }
                     }
-                } else {
-                    // Not used, but just in case
-                    self.updateLocations()
                 }
             }
         }

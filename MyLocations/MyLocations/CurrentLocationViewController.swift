@@ -291,18 +291,20 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
             if !performingReverseGeocoding {
                 performingReverseGeocoding = true
                 
-                geocoder.reverseGeocodeLocation(newLocation, completionHandler: { [unowned self] (placemarks, error) in
-                    self.lastGeocodingError = error
-                    
-                    if error == nil, let p = placemarks, !p.isEmpty {
-                        self.placemark = p.last!
-                    } else {
-                        self.placemark = nil
+                geocoder.reverseGeocodeLocation(newLocation) { [weak self] (placemarks, error) in
+                    if let weakSelf = self {
+                        weakSelf.lastGeocodingError = error
+                        
+                        if error == nil, let p = placemarks, !p.isEmpty {
+                            weakSelf.placemark = p.last!
+                        } else {
+                            weakSelf.placemark = nil
+                        }
+                        
+                        weakSelf.performingReverseGeocoding = false
+                        weakSelf.updateLabels()
                     }
-                    
-                    self.performingReverseGeocoding = false
-                    self.updateLabels()
-                })
+                }
             }
         } else if distance < 1 {
             let timeInterval = newLocation.timestamp.timeIntervalSince(location!.timestamp)

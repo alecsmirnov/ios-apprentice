@@ -28,6 +28,8 @@ class LocationDetailsTableViewController: UITableViewController {
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     
+    var observer: Any!
+    
     var image: UIImage? {
         didSet {
             if let image = image {
@@ -73,6 +75,10 @@ class LocationDetailsTableViewController: UITableViewController {
         
         if let location = locationToEdit {
             title = "Edit Location"
+            
+            if location.hasPhoto {
+                image = location.photoImage
+            }
         }
         
         descriptionTextView.text = descriptionText
@@ -92,8 +98,30 @@ class LocationDetailsTableViewController: UITableViewController {
         // Hide keyboard
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
-        
         tableView.addGestureRecognizer(gestureRecognizer)
+        
+        listenForBackgroundNotification()
+    }
+    
+    // Remove alert or action sheet when the app goes into the background
+    func listenForBackgroundNotification() {
+        observer = NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification,
+                                                          object: nil, queue: OperationQueue.main) { [weak self] _ in
+            if let weakSelf = self {
+                // Reference to modal presented ViewController
+                if weakSelf.presentedViewController != nil {
+                    weakSelf.dismiss(animated: false, completion: nil)
+                }
+                
+                // Hide the keyboard if the text view is active
+                weakSelf.descriptionTextView.resignFirstResponder()
+            }
+        }
+    }
+    
+    deinit {
+        print("*** deinit \(self)")
+        NotificationCenter.default.removeObserver(observer!)
     }
     
     // MARK: - Helper Methods
@@ -164,6 +192,21 @@ class LocationDetailsTableViewController: UITableViewController {
         location.longitude = coordinate.longitude
         location.date = date
         location.placemark = placemark
+        
+        // Save image
+        if let image = image {
+            if !location.hasPhoto {
+                location.photoID = Location.nextPhotoID() as NSNumber
+            }
+            
+            if let data = image.jpegData(compressionQuality: 0.5) {
+                do {
+                    try data.write(to: location.photoURL, options: .atomic)
+                } catch {
+                    print("Error writing file: \(error)")
+                }
+            }
+        }
         
         do {
             try managedObjectContext.save()
