@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 import CoreLocation
 import CoreData
 
@@ -28,6 +29,9 @@ class CurrentLocationViewController: UIViewController {
     var timer: Timer?
     
     var logoVisible = false
+    
+    // 0 - no sound loaded yet
+    var soundID: SystemSoundID = 0
     
     private(set) lazy var logoButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -57,6 +61,8 @@ class CurrentLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadSoundEffect("Sound.caf")
         
         updateLabels()
     }
@@ -90,8 +96,7 @@ class CurrentLocationViewController: UIViewController {
 
         // ContainerView is placed outside the screen (somewhere on the right) and moved to the center
         containerView.center.x = view.bounds.size.width * 2
-        containerView.center.y = 40 +
-        containerView.bounds.size.height / 2
+        containerView.center.y = 40 + containerView.bounds.size.height / 2
         
         let centerX = view.bounds.midX
         let panelMover = CABasicAnimation(keyPath: "position")
@@ -222,6 +227,7 @@ class CurrentLocationViewController: UIViewController {
             
             if view.viewWithTag(spinnerTag) == nil {
                 let spinner = UIActivityIndicatorView(style: .medium)
+                spinner.color = UIColor.white
                 spinner.center = messageLabel.center
                 spinner.center.y += spinner.bounds.size.height / 2 + 25
                 
@@ -324,6 +330,28 @@ class CurrentLocationViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    // MARK: - Sound effects
+    
+    func loadSoundEffect(_ name: String) {
+        if let path = Bundle.main.path(forResource: name, ofType: nil) {
+            let fileURL = URL(fileURLWithPath: path, isDirectory: false)
+            
+            let error = AudioServicesCreateSystemSoundID(fileURL as CFURL, &soundID)
+            if error != kAudioServicesNoError {
+                print("Error code \(error) loading sound: \(path)")
+            }
+        }
+    }
+    
+    func unloadSoundEffect() {
+        AudioServicesDisposeSystemSoundID(soundID)
+        soundID = 0
+    }
+    
+    func playSoundEffect() {
+        AudioServicesPlaySystemSound(soundID)
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -387,6 +415,11 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
                         weakSelf.lastGeocodingError = error
                         
                         if error == nil, let p = placemarks, !p.isEmpty {
+                            if weakSelf.placemark == nil {
+                                print("FIRST TIME!")
+                                weakSelf.playSoundEffect()
+                            }
+                            
                             weakSelf.placemark = p.last!
                         } else {
                             weakSelf.placemark = nil

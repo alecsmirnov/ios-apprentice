@@ -22,6 +22,7 @@
 		844689B52528A65900E4F509 /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844689B42528A65900E4F509 /* String+AddText.swift */; };
 		844689B72528ADA300E4F509 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844689B62528ADA300E4F509 /* MyTabBarController.swift */; };
 		844689B92528AF1E00E4F509 /* MyImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844689B82528AF1E00E4F509 /* MyImagePickerController.swift */; };
+		844689BC2528D93700E4F509 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 844689BB2528D93700E4F509 /* Sound.caf */; };
 		8446A9812525B55100CE1995 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446A9802525B55100CE1995 /* LocationsTableViewController.swift */; };
 		8446A9832525C60700CE1995 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446A9822525C60700CE1995 /* LocationCell.swift */; };
 		8446A9862525E97C00CE1995 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446A9852525E97C00CE1995 /* MapViewController.swift */; };
@@ -48,6 +49,7 @@
 		844689B42528A65900E4F509 /* String+AddText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AddText.swift"; sourceTree = "<group>"; };
 		844689B62528ADA300E4F509 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		844689B82528AF1E00E4F509 /* MyImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImagePickerController.swift; sourceTree = "<group>"; };
+		844689BB2528D93700E4F509 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
 		8446A9802525B55100CE1995 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		8446A9822525C60700CE1995 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		8446A9852525E97C00CE1995 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		844616862520AF54005E8934 /* MyLocations */ = {
 			isa = PBXGroup;
 			children = (
+				844689BA2528D90A00E4F509 /* Sound */,
 				8446A9842525E60B00CE1995 /* CoreData */,
 				8446A9892525F72600CE1995 /* Extensions */,
 				844616872520AF54005E8934 /* AppDelegate.swift */,
@@ -106,6 +109,14 @@
 				844616972520AF58005E8934 /* Info.plist */,
 			);
 			path = MyLocations;
+			sourceTree = "<group>";
+		};
+		844689BA2528D90A00E4F509 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				844689BB2528D93700E4F509 /* Sound.caf */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		8446A9842525E60B00CE1995 /* CoreData */ = {
@@ -188,6 +199,7 @@
 			files = (
 				844616962520AF58005E8934 /* LaunchScreen.storyboard in Resources */,
 				844616932520AF58005E8934 /* Assets.xcassets in Resources */,
+				844689BC2528D93700E4F509 /* Sound.caf in Resources */,
 				844616912520AF54005E8934 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
