@@ -27,13 +27,33 @@ class CurrentLocationViewController: UIViewController {
     
     var timer: Timer?
     
+    var logoVisible = false
+    
+    private(set) lazy var logoButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setBackgroundImage(UIImage(named: "Logo"), for: .normal)
+        button.sizeToFit()
+        
+        button.addTarget(self, action: #selector(getLocation), for: .touchUpInside)
+        
+        button.center.x = self.view.bounds.midX
+        button.center.y = 220
+        
+        return button
+    }()
+    
+    @IBOutlet weak var containerView: UIView!
+    
+    @IBOutlet weak var tagButton: UIButton!
+    @IBOutlet weak var getButton: UIButton!
+    
+    @IBOutlet weak var latitudeTextLabel: UILabel!
+    @IBOutlet weak var longitudeTextLabel: UILabel!
+    
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    
-    @IBOutlet weak var tagButton: UIButton!
-    @IBOutlet weak var getButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +73,65 @@ class CurrentLocationViewController: UIViewController {
         navigationController?.isNavigationBarHidden = false
     }
     
+    func showLogoView() {
+        if !logoVisible {
+            logoVisible = true
+            containerView.isHidden = true
+            
+            view.addSubview(logoButton)
+        }
+    }
+    
+    func hideLogoView() {
+        if !logoVisible { return }
+        
+        logoVisible = false
+        containerView.isHidden = false
+
+        // ContainerView is placed outside the screen (somewhere on the right) and moved to the center
+        containerView.center.x = view.bounds.size.width * 2
+        containerView.center.y = 40 +
+        containerView.bounds.size.height / 2
+        
+        let centerX = view.bounds.midX
+        let panelMover = CABasicAnimation(keyPath: "position")
+        panelMover.isRemovedOnCompletion = false
+        panelMover.fillMode = CAMediaTimingFillMode.forwards
+        panelMover.duration = 0.6
+        panelMover.fromValue = NSValue(cgPoint: containerView.center)
+        panelMover.toValue = NSValue(cgPoint: CGPoint(x: centerX, y: containerView.center.y))
+        panelMover.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        
+        panelMover.delegate = self
+        
+        containerView.layer.add(panelMover, forKey: "panelMover")
+        
+        let logoMover = CABasicAnimation(keyPath: "position")
+        logoMover.isRemovedOnCompletion = false
+        logoMover.fillMode = CAMediaTimingFillMode.forwards
+        logoMover.duration = 0.5
+        logoMover.fromValue = NSValue(cgPoint: logoButton.center)
+        logoMover.toValue = NSValue(cgPoint: CGPoint(x: -centerX, y: logoButton.center.y))
+        logoMover.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+        
+        logoButton.layer.add(logoMover, forKey: "logoMover")
+        
+        let logoRotator = CABasicAnimation(keyPath: "transform.rotation.z")
+        logoRotator.isRemovedOnCompletion = false
+        logoRotator.fillMode = CAMediaTimingFillMode.forwards
+        logoRotator.duration = 0.5
+        logoRotator.fromValue = 0.0
+        logoRotator.toValue = -2 * Double.pi
+        logoRotator.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+        
+        logoButton.layer.add(logoRotator, forKey: "logoRotator")
+    }
+    
     func updateLabels() {
         if let location = location {
+            latitudeTextLabel.isHidden = false
+            longitudeTextLabel.isHidden = false
+            
             messageLabel.text = ""
             latitudeLabel.text = String(format: "%.8f", location.coordinate.latitude)
             longitudeLabel.text = String(format: "%.8f", location.coordinate.longitude)
@@ -71,6 +148,9 @@ class CurrentLocationViewController: UIViewController {
                 addressLabel.text = "No Address Found"
             }
         } else {
+            latitudeTextLabel.isHidden = true
+            longitudeTextLabel.isHidden = true
+            
             latitudeLabel.text = ""
             longitudeLabel.text = ""
             addressLabel.text = ""
@@ -89,7 +169,9 @@ class CurrentLocationViewController: UIViewController {
             } else if updatingLocation {
                 statusMessage = "Searching..."
             } else {
-                statusMessage = "Tap 'Get My Location' to Start"
+                statusMessage = ""
+                
+                showLogoView()
             }
             
             messageLabel.text = statusMessage
@@ -132,39 +214,44 @@ class CurrentLocationViewController: UIViewController {
     }
     
     func configureGetButton() {
+        // Keep spinner local, without instance
+        let spinnerTag = 1000
+        
         if updatingLocation {
             getButton.setTitle("Stop", for: .normal)
+            
+            if view.viewWithTag(spinnerTag) == nil {
+                let spinner = UIActivityIndicatorView(style: .medium)
+                spinner.center = messageLabel.center
+                spinner.center.y += spinner.bounds.size.height / 2 + 25
+                
+                spinner.startAnimating()
+                spinner.tag = spinnerTag
+                
+                containerView.addSubview(spinner)
+            }
         } else {
             getButton.setTitle("Get My Location", for: .normal)
+            
+            if let spinner = view.viewWithTag(spinnerTag) {
+                spinner.removeFromSuperview()
+            }
         }
     }
     
     func string(from placemark: CLPlacemark) -> String {
         var line1 = ""
-        
-        if let s = placemark.subThoroughfare {
-            line1 += s + " "
-        }
-        
-        if let s = placemark.thoroughfare {
-            line1 += s
-        }
+        line1.add(text: placemark.subThoroughfare)
+        line1.add(text: placemark.thoroughfare, separatedBy: " ")
         
         var line2 = ""
+        line2.add(text: placemark.locality)
+        line2.add(text: placemark.administrativeArea, separatedBy: " ")
+        line2.add(text: placemark.postalCode, separatedBy: " ")
         
-        if let s = placemark.locality {
-            line2 += s + " "
-        }
+        line1.add(text: line2, separatedBy: "\n")
         
-        if let s = placemark.administrativeArea {
-            line2 += s + " "
-        }
-        
-        if let s = placemark.postalCode {
-            line2 += s
-        }
-        
-        return line1 + "\n" + line2
+        return line1
     }
     
     // MARK: - Navigation
@@ -194,6 +281,10 @@ class CurrentLocationViewController: UIViewController {
         if authStatus == .denied || authStatus == .restricted {
             showLocationServicesDeniedAlert()
             return
+        }
+        
+        if logoVisible {
+            hideLogoView()
         }
         
         if updatingLocation {
@@ -314,5 +405,20 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
                 updateLabels()
             }
         }
+    }
+}
+
+// MARK: - CAAnimationDelegate
+
+extension CurrentLocationViewController: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        containerView.layer.removeAllAnimations()
+        
+        containerView.center.x = view.bounds.size.width / 2
+        containerView.center.y = 40 +
+        containerView.bounds.size.height / 2
+        
+        logoButton.layer.removeAllAnimations()
+        logoButton.removeFromSuperview()
     }
 }
