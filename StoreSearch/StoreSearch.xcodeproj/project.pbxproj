@@ -13,6 +13,7 @@
 		84484FA72529B89400462E7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84484FA62529B89400462E7D /* Assets.xcassets */; };
 		84484FAA2529B89400462E7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84484FA82529B89400462E7D /* LaunchScreen.storyboard */; };
 		84484FB22529B99000462E7D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84484FB12529B99000462E7D /* SearchViewController.swift */; };
+		84484FB42529C68E00462E7D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84484FB32529C68E00462E7D /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		84484FA92529B89400462E7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84484FAB2529B89400462E7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84484FB12529B99000462E7D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		84484FB32529C68E00462E7D /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				84484F9D2529B89100462E7D /* AppDelegate.swift */,
 				84484F9F2529B89100462E7D /* SceneDelegate.swift */,
 				84484FB12529B99000462E7D /* SearchViewController.swift */,
+				84484FB32529C68E00462E7D /* SearchResult.swift */,
 				84484FA32529B89100462E7D /* Main.storyboard */,
 				84484FA62529B89400462E7D /* Assets.xcassets */,
 				84484FA82529B89400462E7D /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				84484FB22529B99000462E7D /* SearchViewController.swift in Sources */,
 				84484F9E2529B89100462E7D /* AppDelegate.swift in Sources */,
+				84484FB42529C68E00462E7D /* SearchResult.swift in Sources */,
 				84484FA02529B89100462E7D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

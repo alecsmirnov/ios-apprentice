@@ -14,9 +14,39 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YfD-HY-bDH">
+                                <rect key="frame" x="0.0" y="56" width="375" height="611"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="bLs-6B-KMu"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Odh-ci-1aG"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="App name, artist, song, album, e-book." translatesAutoresizingMaskIntoConstraints="NO" id="s4t-3S-Ddp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="eNd-9K-0OO"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YfD-HY-bDH" firstAttribute="top" secondItem="s4t-3S-Ddp" secondAttribute="bottom" id="9sa-eO-yuu"/>
+                            <constraint firstItem="s4t-3S-Ddp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Lnt-j4-1xc"/>
+                            <constraint firstItem="YfD-HY-bDH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M0K-o6-DVh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YfD-HY-bDH" secondAttribute="trailing" id="RYZ-fE-vUG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YfD-HY-bDH" secondAttribute="bottom" id="dWX-i5-zSh"/>
+                            <constraint firstItem="s4t-3S-Ddp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jid-lr-K97"/>
+                            <constraint firstItem="s4t-3S-Ddp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u2o-Ce-oJu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="s4t-3S-Ddp" id="CGf-cB-ush"/>
+                        <outlet property="tableView" destination="YfD-HY-bDH" id="bKc-o0-s5Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
