@@ -25,10 +25,20 @@ class SearchViewController: UIViewController {
     var dataTask: URLSessionDataTask?
     
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let segmentColor = UIColor(red: 10 / 255, green: 80 / 255, blue: 80 / 255, alpha: 1)
+        let selectedTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let normalTextAttributes = [NSAttributedString.Key.foregroundColor: segmentColor]
+        
+        segmentedControl.selectedSegmentTintColor = segmentColor
+        segmentedControl.setTitleTextAttributes(normalTextAttributes, for: .normal)
+        segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: .selected)
+        segmentedControl.setTitleTextAttributes(selectedTextAttributes, for: .highlighted)
         
         searchBar.becomeFirstResponder()
         
@@ -40,6 +50,12 @@ class SearchViewController: UIViewController {
         
         cellNib = UINib(nibName: TableView.CellIdentifiers.loadingCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.loadingCell)
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        performSearch()
     }
     
     // MARK: - Helper Methods
@@ -55,10 +71,18 @@ class SearchViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func iTunesURL(searchText: String) -> URL {
+    func iTunesURL(searchText: String, category: Int) -> URL {
+        let kind: String
+        switch category {
+            case 1:  kind = "musicTrack"
+            case 2:  kind = "software"
+            case 3:  kind = "ebook"
+            default: kind = ""
+        }
+        
         // Encode invalid characters for URL
         let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200", encodedText)
+        let urlString = "https://itunes.apple.com/search?term=\(encodedText)&limit=200&entity=\(kind)"
         let url = URL(string: urlString)
         
         return url!
@@ -86,6 +110,10 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        performSearch()
+    }
+    
+    func performSearch() {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
             
@@ -97,7 +125,7 @@ extension SearchViewController: UISearchBarDelegate {
             hasSearched = true
             searchResults = []
             
-            let url = iTunesURL(searchText: searchBar.text!)
+            let url = iTunesURL(searchText: searchBar.text!, category: segmentedControl.selectedSegmentIndex)
             let session = URLSession.shared
             
             dataTask = session.dataTask(with: url) { [weak self] data, response, error in

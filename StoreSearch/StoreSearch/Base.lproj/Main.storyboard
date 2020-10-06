@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YfD-HY-bDH">
-                                <rect key="frame" x="0.0" y="56" width="375" height="611"/>
+                                <rect key="frame" x="0.0" y="102" width="375" height="565"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="bLs-6B-KMu"/>
@@ -30,27 +30,52 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="eNd-9K-0OO"/>
                                 </connections>
                             </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxn-1T-bOR">
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="JmE-Xq-sEI">
+                                        <nil key="title"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="fG7-OF-qZI">
+                                            <rect key="frame" x="37.5" y="5.5" width="300" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="All"/>
+                                                <segment title="Music"/>
+                                                <segment title="Software"/>
+                                                <segment title="E-book"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="iuf-WX-r3s"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="YfD-HY-bDH" firstAttribute="top" secondItem="s4t-3S-Ddp" secondAttribute="bottom" id="9sa-eO-yuu"/>
+                            <constraint firstItem="YfD-HY-bDH" firstAttribute="top" secondItem="sxn-1T-bOR" secondAttribute="bottom" constant="2" id="9sa-eO-yuu"/>
+                            <constraint firstItem="sxn-1T-bOR" firstAttribute="top" secondItem="s4t-3S-Ddp" secondAttribute="bottom" id="JGz-TG-OgN"/>
                             <constraint firstItem="s4t-3S-Ddp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Lnt-j4-1xc"/>
                             <constraint firstItem="YfD-HY-bDH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="M0K-o6-DVh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YfD-HY-bDH" secondAttribute="trailing" id="RYZ-fE-vUG"/>
+                            <constraint firstItem="sxn-1T-bOR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Xjc-BL-RJc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YfD-HY-bDH" secondAttribute="bottom" id="dWX-i5-zSh"/>
                             <constraint firstItem="s4t-3S-Ddp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jid-lr-K97"/>
+                            <constraint firstItem="sxn-1T-bOR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oqO-P2-dxl"/>
                             <constraint firstItem="s4t-3S-Ddp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u2o-Ce-oJu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="s4t-3S-Ddp" id="CGf-cB-ush"/>
+                        <outlet property="segmentedControl" destination="fG7-OF-qZI" id="XIF-WR-t7d"/>
                         <outlet property="tableView" destination="YfD-HY-bDH" id="bKc-o0-s5Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133" y="128"/>
+            <point key="canvasLocation" x="132" y="127.28635682158921"/>
         </scene>
     </scenes>
 </document>
