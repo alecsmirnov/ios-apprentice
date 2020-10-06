@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="ldc-hP-lZw">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ldc-hP-lZw" id="9mY-K1-oFo">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lz9-0Z-xlu">
+                        <rect key="frame" x="140" y="30" width="95" height="20"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="San-c0-Y6l">
+                                <rect key="frame" x="0.0" y="1" width="67.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-16-9ZV">
+                                <rect key="frame" x="75" y="0.0" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="San-c0-Y6l" firstAttribute="leading" secondItem="lz9-0Z-xlu" secondAttribute="leading" id="Ixo-Cr-H3T"/>
+                            <constraint firstItem="X0g-16-9ZV" firstAttribute="top" secondItem="lz9-0Z-xlu" secondAttribute="top" id="SMb-Qw-E8s"/>
+                            <constraint firstAttribute="bottom" secondItem="X0g-16-9ZV" secondAttribute="bottom" id="YTn-xc-7FK"/>
+                            <constraint firstItem="San-c0-Y6l" firstAttribute="top" secondItem="lz9-0Z-xlu" secondAttribute="top" constant="1" id="dHf-7V-iVd"/>
+                            <constraint firstItem="X0g-16-9ZV" firstAttribute="leading" secondItem="San-c0-Y6l" secondAttribute="trailing" constant="7.5" id="eMX-gP-mrz"/>
+                            <constraint firstAttribute="trailing" secondItem="X0g-16-9ZV" secondAttribute="trailing" id="ef9-ze-4lg"/>
+                            <constraint firstAttribute="bottom" secondItem="San-c0-Y6l" secondAttribute="bottom" constant="1" id="ofF-wL-hEB"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lz9-0Z-xlu" firstAttribute="centerY" secondItem="9mY-K1-oFo" secondAttribute="centerY" id="4YB-s9-Pbq"/>
+                    <constraint firstItem="lz9-0Z-xlu" firstAttribute="centerX" secondItem="9mY-K1-oFo" secondAttribute="centerX" id="gGz-xD-FHn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-4" y="46"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8446EA0A252C2D5800CC314E /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446EA09252C2D5800CC314E /* LoadingCell.xib */; };
 		84484F9E2529B89100462E7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84484F9D2529B89100462E7D /* AppDelegate.swift */; };
 		84484FA02529B89100462E7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84484F9F2529B89100462E7D /* SceneDelegate.swift */; };
 		84484FA52529B89100462E7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84484FA32529B89100462E7D /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8446EA09252C2D5800CC314E /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		84484F9A2529B89100462E7D /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84484F9D2529B89100462E7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84484F9F2529B89100462E7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				84484FA32529B89100462E7D /* Main.storyboard */,
 				84484FB52529CD9600462E7D /* SearchResultCell.xib */,
 				84484FB92529EEA400462E7D /* NothingFoundCell.xib */,
+				8446EA09252C2D5800CC314E /* LoadingCell.xib */,
 				84484FA62529B89400462E7D /* Assets.xcassets */,
 				84484FA82529B89400462E7D /* LaunchScreen.storyboard */,
 				84484FAB2529B89400462E7D /* Info.plist */,
@@ -139,6 +142,7 @@
 			files = (
 				84484FAA2529B89400462E7D /* LaunchScreen.storyboard in Resources */,
 				84484FA72529B89400462E7D /* Assets.xcassets in Resources */,
+				8446EA0A252C2D5800CC314E /* LoadingCell.xib in Resources */,
 				84484FB62529CD9600462E7D /* SearchResultCell.xib in Resources */,
 				84484FBA2529EEA400462E7D /* NothingFoundCell.xib in Resources */,
 				84484FA52529B89100462E7D /* Main.storyboard in Resources */,
