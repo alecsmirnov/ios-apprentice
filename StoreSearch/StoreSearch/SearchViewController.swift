@@ -22,6 +22,8 @@ class SearchViewController: UIViewController {
     
     var searchResults = [SearchResult]()
     
+    var dataTask: URLSessionDataTask?
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -59,23 +61,7 @@ class SearchViewController: UIViewController {
         let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200", encodedText)
         let url = URL(string: urlString)
         
-        if let url = url {
-            if let jsonString = performStoreRequest(with: url) {
-                print("Received JSON string '\(jsonString)'")
-            }
-        }
-        
         return url!
-    }
-    
-    func performStoreRequest(with url: URL) -> Data? {
-        do {
-            return try Data(contentsOf: url)
-        } catch {
-            print("Download Error: \(error.localizedDescription)")
-            showNetworkError()
-            return nil
-        }
     }
     
     func parse(data: Data) -> [SearchResult] {
@@ -103,27 +89,47 @@ extension SearchViewController: UISearchBarDelegate {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
             
+            dataTask?.cancel()
+            
             isLoading = true
             tableView.reloadData()
             
             hasSearched = true
             searchResults = []
             
-            let queue = DispatchQueue.global()
-            let url = self.iTunesURL(searchText: searchBar.text!)
+            let url = iTunesURL(searchText: searchBar.text!)
+            let session = URLSession.shared
             
-            queue.async {
-                if let data = self.performStoreRequest(with: url) {
-                    self.searchResults = self.parse(data: data)
-                    // Operator overloading capabilities
-                    self.searchResults.sort(by: <)
+            dataTask = session.dataTask(with: url) { [weak self] data, response, error in
+                if let weakSelf = self {
+                    if let error = error as NSError?, error.code == -999 {
+                        return
+                    } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                        if let data = data {
+                            weakSelf.searchResults = weakSelf.parse(data: data)
+                            weakSelf.searchResults.sort(by: <)
+                            
+                            DispatchQueue.main.async {
+                                weakSelf.isLoading = false
+                                weakSelf.tableView.reloadData()
+                            }
+                            
+                            return
+                        }
+                    } else {
+                        print("Success! \(response!)")
+                    }
                     
                     DispatchQueue.main.async {
-                        self.isLoading = false
-                        self.tableView.reloadData()
+                        weakSelf.hasSearched = false
+                        weakSelf.isLoading = false
+                        weakSelf.tableView.reloadData()
+                        weakSelf.showNetworkError()
                     }
                 }
             }
+            
+            dataTask?.resume()
         }
     }
 }
