@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8446C21A252DA220003E1108 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C219252DA220003E1108 /* UIImageView+DownloadImage.swift */; };
+		8446C21C252DB4FE003E1108 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C21B252DB4FE003E1108 /* DetailViewController.swift */; };
+		8446C21E252DBA17003E1108 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C21D252DBA17003E1108 /* DimmingPresentationController.swift */; };
 		8446EA0A252C2D5800CC314E /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446EA09252C2D5800CC314E /* LoadingCell.xib */; };
 		84484F9E2529B89100462E7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84484F9D2529B89100462E7D /* AppDelegate.swift */; };
 		84484FA02529B89100462E7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84484F9F2529B89100462E7D /* SceneDelegate.swift */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		8446C219252DA220003E1108 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		8446C21B252DB4FE003E1108 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8446C21D252DBA17003E1108 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		8446EA09252C2D5800CC314E /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		84484F9A2529B89100462E7D /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84484F9D2529B89100462E7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				84484F9C2529B89100462E7D /* StoreSearch */,
-				84484F9B2529B89100462E7D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +64,7 @@
 				84484F9A2529B89100462E7D /* StoreSearch.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		84484F9C2529B89100462E7D /* StoreSearch */ = {
@@ -69,15 +73,18 @@
 				84484F9D2529B89100462E7D /* AppDelegate.swift */,
 				84484F9F2529B89100462E7D /* SceneDelegate.swift */,
 				84484FB12529B99000462E7D /* SearchViewController.swift */,
+				8446C21B252DB4FE003E1108 /* DetailViewController.swift */,
 				84484FB72529EAB000462E7D /* SearchResultCell.swift */,
 				84484FB32529C68E00462E7D /* SearchResult.swift */,
 				8446C219252DA220003E1108 /* UIImageView+DownloadImage.swift */,
+				8446C21D252DBA17003E1108 /* DimmingPresentationController.swift */,
 				84484FA32529B89100462E7D /* Main.storyboard */,
 				84484FB52529CD9600462E7D /* SearchResultCell.xib */,
 				84484FB92529EEA400462E7D /* NothingFoundCell.xib */,
 				8446EA09252C2D5800CC314E /* LoadingCell.xib */,
 				84484FA62529B89400462E7D /* Assets.xcassets */,
 				84484FAB2529B89400462E7D /* Info.plist */,
+				84484F9B2529B89100462E7D /* Products */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -158,9 +165,11 @@
 				84484FB22529B99000462E7D /* SearchViewController.swift in Sources */,
 				84484F9E2529B89100462E7D /* AppDelegate.swift in Sources */,
 				8446C21A252DA220003E1108 /* UIImageView+DownloadImage.swift in Sources */,
+				8446C21E252DBA17003E1108 /* DimmingPresentationController.swift in Sources */,
 				84484FB42529C68E00462E7D /* SearchResult.swift in Sources */,
 				84484FA02529B89100462E7D /* SceneDelegate.swift in Sources */,
 				84484FB82529EAB000462E7D /* SearchResultCell.swift in Sources */,
+				8446C21C252DB4FE003E1108 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
