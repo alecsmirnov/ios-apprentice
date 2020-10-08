@@ -14,6 +14,8 @@
 		8446C38B252F093800D6271C /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C38A252F093800D6271C /* BounceAnimationController.swift */; };
 		8446C38D252F1D5700D6271C /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C38C252F1D5700D6271C /* SlideOutAnimationController.swift */; };
 		8446C391252F2C4F00D6271C /* RotateOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C390252F2C4F00D6271C /* RotateOutAnimationController.swift */; };
+		8446C394252F2FC500D6271C /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C393252F2FC500D6271C /* LandscapeViewController.swift */; };
+		8446C396252F4A1800D6271C /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446C395252F4A1800D6271C /* FadeOutAnimationController.swift */; };
 		8446EA0A252C2D5800CC314E /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446EA09252C2D5800CC314E /* LoadingCell.xib */; };
 		84484F9E2529B89100462E7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84484F9D2529B89100462E7D /* AppDelegate.swift */; };
 		84484FA02529B89100462E7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84484F9F2529B89100462E7D /* SceneDelegate.swift */; };
@@ -34,6 +36,8 @@
 		8446C38A252F093800D6271C /* BounceAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 		8446C38C252F1D5700D6271C /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		8446C390252F2C4F00D6271C /* RotateOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotateOutAnimationController.swift; sourceTree = "<group>"; };
+		8446C393252F2FC500D6271C /* LandscapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
+		8446C395252F4A1800D6271C /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		8446EA09252C2D5800CC314E /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		84484F9A2529B89100462E7D /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84484F9D2529B89100462E7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,14 +86,16 @@
 				84484F9F2529B89100462E7D /* SceneDelegate.swift */,
 				84484FB12529B99000462E7D /* SearchViewController.swift */,
 				8446C21B252DB4FE003E1108 /* DetailViewController.swift */,
+				8446C393252F2FC500D6271C /* LandscapeViewController.swift */,
 				84484FB72529EAB000462E7D /* SearchResultCell.swift */,
 				84484FB32529C68E00462E7D /* SearchResult.swift */,
-				8446C219252DA220003E1108 /* UIImageView+DownloadImage.swift */,
 				8446C38A252F093800D6271C /* BounceAnimationController.swift */,
 				8446C38C252F1D5700D6271C /* SlideOutAnimationController.swift */,
+				8446C395252F4A1800D6271C /* FadeOutAnimationController.swift */,
 				8446C390252F2C4F00D6271C /* RotateOutAnimationController.swift */,
 				8446C21D252DBA17003E1108 /* DimmingPresentationController.swift */,
 				8446C388252EFECE00D6271C /* GradientView.swift */,
+				8446C219252DA220003E1108 /* UIImageView+DownloadImage.swift */,
 				84484FA32529B89100462E7D /* Main.storyboard */,
 				84484FB52529CD9600462E7D /* SearchResultCell.xib */,
 				84484FB92529EEA400462E7D /* NothingFoundCell.xib */,
@@ -176,6 +182,7 @@
 			files = (
 				8446C389252EFECE00D6271C /* GradientView.swift in Sources */,
 				8446C38D252F1D5700D6271C /* SlideOutAnimationController.swift in Sources */,
+				8446C396252F4A1800D6271C /* FadeOutAnimationController.swift in Sources */,
 				84484FB22529B99000462E7D /* SearchViewController.swift in Sources */,
 				84484F9E2529B89100462E7D /* AppDelegate.swift in Sources */,
 				8446C391252F2C4F00D6271C /* RotateOutAnimationController.swift in Sources */,
@@ -183,6 +190,7 @@
 				8446C38B252F093800D6271C /* BounceAnimationController.swift in Sources */,
 				8446C21E252DBA17003E1108 /* DimmingPresentationController.swift in Sources */,
 				84484FB42529C68E00462E7D /* SearchResult.swift in Sources */,
+				8446C394252F2FC500D6271C /* LandscapeViewController.swift in Sources */,
 				84484FA02529B89100462E7D /* SceneDelegate.swift in Sources */,
 				84484FB82529EAB000462E7D /* SearchResultCell.swift in Sources */,
 				8446C21C252DB4FE003E1108 /* DetailViewController.swift in Sources */,

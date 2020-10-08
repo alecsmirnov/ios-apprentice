@@ -12,12 +12,18 @@ class GradientView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        // Сhange width and height proportionally when the superview it belongs to resizes due to being rotated
+        // GradientView will always cover the same area that its superview covers
+        autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
         // Fully transparent color
         backgroundColor = UIColor.clear
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
+        autoresizingMask = [.flexibleWidth, .flexibleHeight]
     
         backgroundColor = UIColor.clear
     }
