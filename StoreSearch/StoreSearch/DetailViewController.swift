@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var searchResult: SearchResult!
+    var downloadTask: URLSessionDownloadTask?
     
     @IBOutlet weak var popupView: UIView!
     
@@ -46,6 +47,11 @@ class DetailViewController: UIViewController {
         transitioningDelegate = self
     }
     
+    deinit {
+        print("deinit \(self)")
+        downloadTask?.cancel()
+    }
+    
     // MARK: - Actions
     
     @IBAction func close() {
@@ -60,6 +66,10 @@ class DetailViewController: UIViewController {
     
     // MARK: - Helper Methods
     func updateUI() {
+        if let largeURL = URL(string: searchResult.imageLarge) {
+            downloadTask = artworkImageView.loadImage(url: largeURL)
+        }
+        
         nameLabel.text = searchResult.name
         
         if searchResult.artist.isEmpty {

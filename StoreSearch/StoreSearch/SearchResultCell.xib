@@ -22,24 +22,24 @@
                             <constraint firstAttribute="height" constant="60" id="wbp-1T-Aq3"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEf-Q9-icT">
-                        <rect key="frame" x="84" y="16" width="275" height="22"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEf-Q9-icT">
+                        <rect key="frame" x="84" y="16" width="47" height="25.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nau-NV-eBD">
-                        <rect key="frame" x="84" y="44" width="275" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nau-NV-eBD">
+                        <rect key="frame" x="84" y="47.5" width="67.5" height="14.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                         <color key="textColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="nau-NV-eBD" firstAttribute="top" secondItem="YEf-Q9-icT" secondAttribute="bottom" constant="6" id="5YJ-bs-ECt"/>
-                    <constraint firstAttribute="trailing" secondItem="YEf-Q9-icT" secondAttribute="trailing" constant="16" id="Mby-mV-xGd"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YEf-Q9-icT" secondAttribute="trailing" constant="16" id="Mby-mV-xGd"/>
                     <constraint firstItem="nau-NV-eBD" firstAttribute="leading" secondItem="832-H6-226" secondAttribute="trailing" constant="8" id="Ndx-AM-ZH2"/>
-                    <constraint firstAttribute="trailing" secondItem="nau-NV-eBD" secondAttribute="trailing" constant="16" id="UEj-iX-ZXg"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nau-NV-eBD" secondAttribute="trailing" constant="16" id="UEj-iX-ZXg"/>
                     <constraint firstAttribute="bottom" secondItem="nau-NV-eBD" secondAttribute="bottom" constant="18" id="bXp-qt-ayF"/>
                     <constraint firstItem="YEf-Q9-icT" firstAttribute="top" secondItem="fT4-Mm-adH" secondAttribute="top" constant="16" id="di1-qO-IZb"/>
                     <constraint firstItem="832-H6-226" firstAttribute="leading" secondItem="fT4-Mm-adH" secondAttribute="leading" constant="16" id="ehQ-nn-xk0"/>
