@@ -40,7 +40,17 @@ class LandscapeViewController: UIViewController {
         
         if firstTime {
             firstTime = false
-            tileButtons(search.searchResults)
+            
+            switch search.state {
+            case .notSearchedYet:
+                break
+            case .loading:
+                break
+            case .noResults:
+                break
+            case .results(let list):
+                tileButtons(list)
+            }
         }
     }
     
@@ -175,7 +185,6 @@ class LandscapeViewController: UIViewController {
         let numPages = 1 + (searchResults.count - 1) / buttonsPerPage
         
         scrollView.contentSize = CGSize(width: CGFloat(numPages) * viewWidth, height: scrollView.bounds.size.height)
-        print("Number of pages: \(numPages)")
         
         pageControl.numberOfPages = numPages
         pageControl.currentPage = 0
