@@ -91,8 +91,8 @@ class LandscapeViewController: UIViewController {
             }
         }
         
-        let marginX: CGFloat = 2
-        let marginY: CGFloat = (viewHeight - (CGFloat(rowsPerPage) * itemHeight)) / CGFloat(rowsPerPage)
+        let marginX: CGFloat = (viewWidth - (CGFloat(columnsPerPage) * itemWidth)) / 2
+        let marginY: CGFloat = (viewHeight - (CGFloat(rowsPerPage) * itemHeight)) / 2
         
         // Button size
         let buttonWidth: CGFloat = itemSizeMin
