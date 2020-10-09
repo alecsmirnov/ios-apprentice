@@ -9,7 +9,7 @@
 import UIKit
 
 class LandscapeViewController: UIViewController {
-    var searchResults = [SearchResult]()
+    var search: Search!
     
     private var firstTime = true
     private var downloads = [URLSessionDownloadTask]()
@@ -40,7 +40,7 @@ class LandscapeViewController: UIViewController {
         
         if firstTime {
             firstTime = false
-            tileButtons(searchResults)
+            tileButtons(search.searchResults)
         }
     }
     
@@ -86,9 +86,11 @@ class LandscapeViewController: UIViewController {
                    let url = url,
                    let data = try? Data(contentsOf: url),
                    let image = UIImage(data: data) {
+                    let optimisedImage = image.resized(withBounds: CGSize(width: 60, height: 60))
+                    
                     DispatchQueue.main.async {
                         if let button = button {
-                            button.setImage(image, for: .normal)
+                            button.setImage(optimisedImage, for: .normal)
                         }
                     }
                 }
