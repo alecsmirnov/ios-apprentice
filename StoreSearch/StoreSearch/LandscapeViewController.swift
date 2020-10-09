@@ -12,6 +12,7 @@ class LandscapeViewController: UIViewController {
     var searchResults = [SearchResult]()
     
     private var firstTime = true
+    private var downloads = [URLSessionDownloadTask]()
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -43,6 +44,13 @@ class LandscapeViewController: UIViewController {
         }
     }
     
+    deinit {
+        print("deinit \(self)")
+        for task in downloads {
+            task.cancel()
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func pageChanged(_ sender: UIPageControl) {
@@ -70,6 +78,27 @@ class LandscapeViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
+    private func downloadImage(for searchResult: SearchResult, andPlaceOn button: UIButton) {
+        if let url = URL(string: searchResult.imageSmall) {
+            let task = URLSession.shared.downloadTask(with: url) { [weak button] url, response, error in
+                if error == nil,
+                   let url = url,
+                   let data = try? Data(contentsOf: url),
+                   let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        if let button = button {
+                            button.setImage(image, for: .normal)
+                        }
+                    }
+                }
+            }
+            
+            task.resume()
+            
+            downloads.append(task)
+        }
+    }
     
     private func tileButtons(_ searchResults: [SearchResult]) {
         let itemSizeMin: CGFloat = 82
@@ -113,14 +142,16 @@ class LandscapeViewController: UIViewController {
         var column = 0
         var x = marginX
         
-        for (index, result) in searchResults.enumerated() {
-            let button = UIButton(type: .system)
-            button.backgroundColor = UIColor.white
-            button.setTitle("\(index)", for: .normal)
+        for (_, result) in searchResults.enumerated() {
+            let button = UIButton(type: .custom)
+            button.setBackgroundImage(UIImage(named: "LandscapeButton"), for: .normal)
+            
             button.frame = CGRect(x: x + paddingHorz,
                                   y: marginY + CGFloat(row) * itemHeight + paddingVert,
                                   width: buttonWidth,
                                   height: buttonHeight)
+            
+            downloadImage(for: result, andPlaceOn: button)
             
             scrollView.addSubview(button)
             
