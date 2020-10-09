@@ -19,12 +19,11 @@ class LandscapeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //scrollView.backgroundColor = .red
-        //pageControl.backgroundColor = .green
-        
         disableAutoLayoutConstraints()
         
         view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
+        
+        pageControl.numberOfPages = 0
     }
     
     override func viewWillLayoutSubviews() {
@@ -42,6 +41,14 @@ class LandscapeViewController: UIViewController {
             firstTime = false
             tileButtons(searchResults)
         }
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func pageChanged(_ sender: UIPageControl) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
+            self.scrollView.contentOffset = CGPoint(x: self.scrollView.bounds.size.width * CGFloat(sender.currentPage), y: 0)
+        }, completion: nil)
     }
     
     // MARK: - Helper Methods
@@ -136,5 +143,20 @@ class LandscapeViewController: UIViewController {
         
         scrollView.contentSize = CGSize(width: CGFloat(numPages) * viewWidth, height: scrollView.bounds.size.height)
         print("Number of pages: \(numPages)")
+        
+        pageControl.numberOfPages = numPages
+        pageControl.currentPage = 0
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension LandscapeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = scrollView.bounds.size.width
+        // contentOffset determines how far the scroll view has been scrolled
+        let page = Int((scrollView.contentOffset.x + width / 2) / width)
+            
+        pageControl.currentPage = page
     }
 }
