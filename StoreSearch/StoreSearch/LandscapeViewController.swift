@@ -45,9 +45,9 @@ class LandscapeViewController: UIViewController {
             case .notSearchedYet:
                 break
             case .loading:
-                break
+                showSpinner()
             case .noResults:
-                break
+                showNothingFoundLabel()
             case .results(let list):
                 tileButtons(list)
             }
@@ -69,6 +69,24 @@ class LandscapeViewController: UIViewController {
         }, completion: nil)
     }
     
+    @objc func buttonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "ShowDetail", sender: sender)
+    }
+    
+    // MARK:- Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            if case .results(let list) = search.state {
+                let detailViewController = segue.destination as! DetailViewController
+                let senderButton = sender as! UIButton
+                
+                let searchResult = list[senderButton.tag - 2000]
+                
+                detailViewController.searchResult = searchResult
+            }
+        }
+    }
+    
     // MARK: - Helper Methods
     
     func disableAutoLayoutConstraints() {
@@ -85,6 +103,19 @@ class LandscapeViewController: UIViewController {
         // Remove constraints for scroll view
         scrollView.removeConstraints(scrollView.constraints)
         scrollView.translatesAutoresizingMaskIntoConstraints = true
+    }
+    
+    // MARK: - Public Methods
+    
+    func searchResultsReceived() {
+        hideSpinner()
+        
+        switch search.state {
+        case .notSearchedYet, .loading, .noResults:
+            break
+        case .results(let list):
+            tileButtons(list)
+        }
     }
     
     // MARK: - Private Methods
@@ -154,7 +185,7 @@ class LandscapeViewController: UIViewController {
         var column = 0
         var x = marginX
         
-        for (_, result) in searchResults.enumerated() {
+        for (index, result) in searchResults.enumerated() {
             let button = UIButton(type: .custom)
             button.setBackgroundImage(UIImage(named: "LandscapeButton"), for: .normal)
             
@@ -162,6 +193,9 @@ class LandscapeViewController: UIViewController {
                                   y: marginY + CGFloat(row) * itemHeight + paddingVert,
                                   width: buttonWidth,
                                   height: buttonHeight)
+            
+            button.tag = 2000 + index
+            button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
             
             downloadImage(for: result, andPlaceOn: button)
             
@@ -188,6 +222,42 @@ class LandscapeViewController: UIViewController {
         
         pageControl.numberOfPages = numPages
         pageControl.currentPage = 0
+    }
+    
+    private func showSpinner() {
+        let spinner = UIActivityIndicatorView(style: .large)
+        // Spinner size is 37 points, is not an even number
+        // Adding 0.5 to the coordinates of the spinner, we avoid the fraction coordinates for X and Y
+        // If top-left corner position is on fraction coordinates, making it look all blurry
+        // (topLeftX = centerX - 18.5 + 0.5; topLeftY = centerY - 18.5 + 0.5)
+        spinner.center = CGPoint(x: scrollView.bounds.midX + 0.5, y: scrollView.bounds.midY + 0.5)
+        spinner.tag = 1000
+        
+        view.addSubview(spinner)
+        
+        spinner.startAnimating()
+    }
+    
+    private func hideSpinner() {
+        view.viewWithTag(1000)?.removeFromSuperview()
+    }
+    
+    private func showNothingFoundLabel() {
+        let label = UILabel(frame: CGRect.zero)
+        label.text = "Nothing Found"
+        label.textColor = UIColor.white
+        label.backgroundColor = UIColor.clear
+        
+        label.sizeToFit()
+        
+        var rect = label.frame
+        rect.size.width = ceil(rect.size.width / 2) * 2     // make even
+        rect.size.height = ceil(rect.size.height / 2) * 2   // make even
+        
+        label.frame = rect
+        label.center = CGPoint(x: scrollView.bounds.midX, y: scrollView.bounds.midY)
+        
+        view.addSubview(label)
     }
 }
 
