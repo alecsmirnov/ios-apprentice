@@ -73,7 +73,7 @@ class LandscapeViewController: UIViewController {
         performSegue(withIdentifier: "ShowDetail", sender: sender)
     }
     
-    // MARK:- Navigation
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
             if case .results(let list) = search.state {

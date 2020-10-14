@@ -31,7 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		84465C402530709C00F4DD4E /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Resize.swift"; path = "../../MyLocations/MyLocations/Extensions/UIImage+Resize.swift"; sourceTree = "<group>"; };
+		84465C402530709C00F4DD4E /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		84465C422530766D00F4DD4E /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		8446C219252DA220003E1108 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		8446C21B252DB4FE003E1108 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +86,7 @@
 		84484F9C2529B89100462E7D /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
+				845D8805253724D900EB601B /* Extension */,
 				84484F9D2529B89100462E7D /* AppDelegate.swift */,
 				84484F9F2529B89100462E7D /* SceneDelegate.swift */,
 				84484FB12529B99000462E7D /* SearchViewController.swift */,
@@ -100,8 +101,6 @@
 				8446C390252F2C4F00D6271C /* RotateOutAnimationController.swift */,
 				8446C21D252DBA17003E1108 /* DimmingPresentationController.swift */,
 				8446C388252EFECE00D6271C /* GradientView.swift */,
-				8446C219252DA220003E1108 /* UIImageView+DownloadImage.swift */,
-				84465C402530709C00F4DD4E /* UIImage+Resize.swift */,
 				84484FA32529B89100462E7D /* Main.storyboard */,
 				84484FB52529CD9600462E7D /* SearchResultCell.xib */,
 				84484FB92529EEA400462E7D /* NothingFoundCell.xib */,
@@ -111,6 +110,15 @@
 				84484F9B2529B89100462E7D /* Products */,
 			);
 			path = StoreSearch;
+			sourceTree = "<group>";
+		};
+		845D8805253724D900EB601B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8446C219252DA220003E1108 /* UIImageView+DownloadImage.swift */,
+				84465C402530709C00F4DD4E /* UIImage+Resize.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +347,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StoreSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,6 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StoreSearch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

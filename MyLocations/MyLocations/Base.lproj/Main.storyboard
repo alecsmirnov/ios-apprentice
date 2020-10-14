@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -63,7 +65,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shW-sA-e6W">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shW-sA-e6W">
                                         <rect key="frame" x="0.0" y="193" width="382" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="Tag Location"/>
@@ -97,7 +99,7 @@
                                     <constraint firstItem="0ia-Jb-b1T" firstAttribute="top" secondItem="H1v-7k-tXN" secondAttribute="bottom" constant="24" id="too-b7-y6c"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9e-yg-RVy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9e-yg-RVy">
                                 <rect key="frame" x="130" y="631" width="154" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="154" id="u0o-6O-c33"/>
@@ -111,6 +113,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="St6-Dq-rVB" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="Eip-an-xKu"/>
@@ -119,7 +122,6 @@
                             <constraint firstItem="w9e-yg-RVy" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="l9u-oO-r5T"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="w9e-yg-RVy" secondAttribute="bottom" constant="20" id="qPE-K2-Wu5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" id="PEm-Eg-DEC"/>
                     <connections>
@@ -222,14 +224,14 @@
                                 </connections>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="c9H-2m-X8d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lNl-9Z-Oc4" firstAttribute="top" secondItem="c9H-2m-X8d" secondAttribute="top" id="PgS-AA-3Oo"/>
                             <constraint firstItem="c9H-2m-X8d" firstAttribute="trailing" secondItem="lNl-9Z-Oc4" secondAttribute="trailing" id="SY5-0e-DPP"/>
                             <constraint firstItem="c9H-2m-X8d" firstAttribute="bottom" secondItem="lNl-9Z-Oc4" secondAttribute="bottom" id="T6r-QZ-URk"/>
                             <constraint firstItem="lNl-9Z-Oc4" firstAttribute="leading" secondItem="c9H-2m-X8d" secondAttribute="leading" id="mdb-CO-ytk"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="c9H-2m-X8d"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="osK-ZM-3so">
                         <barButtonItem key="leftBarButtonItem" title="Locations" image="Pin" id="g5c-md-pWs">
@@ -258,7 +260,6 @@
                 <navigationController id="NB2-Dz-gAb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Locations" image="Locations" id="DsM-zX-ReR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zva-5a-g4U">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -583,7 +584,6 @@
                     <tabBarItem key="tabBarItem" title="Tag" image="Tag" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qqb-fH-M8t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -602,7 +602,6 @@
                     <tabBarItem key="tabBarItem" title="Map" image="Map" id="1cE-VZ-476"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6ax-Il-xek">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -625,5 +624,8 @@
         <image name="Pin" width="24" height="24"/>
         <image name="Tag" width="30" height="30"/>
         <image name="User" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
